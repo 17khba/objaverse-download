@@ -75,6 +75,42 @@ def create_custom_structure(base_path: str, uid: str, glb_path: str, metadata: D
     }
 
 
+def download_single_object(uid: str, output_dir: str, annotations_cache: Dict[str, Any]) -> Dict[str, str]:
+    """
+    下载单个对象并立即存储
+    
+    Args:
+        uid: 对象唯一标识符
+        output_dir: 输出目录
+        annotations_cache: 元数据缓存
+    
+    Returns:
+        文件路径字典
+    """
+    try:
+        # 下载单个GLB文件
+        objects = objaverse_download.load_objects([uid], download_processes=1)
+        
+        if uid in objects and uid in annotations_cache:
+            # 立即创建自定义文件结构
+            file_paths = create_custom_structure(
+                output_dir, 
+                uid, 
+                objects[uid], 
+                annotations_cache[uid]
+            )
+            print(f"✓ 已完成: {uid}")
+            return file_paths
+        else:
+            error_msg = 'Missing object or annotation'
+            print(f"✗ 失败: {uid} - {error_msg}")
+            return {'error': error_msg}
+    except Exception as e:
+        error_msg = str(e)
+        print(f"✗ 错误: {uid} - {error_msg}")
+        return {'error': error_msg}
+
+
 def download_shard(
     start_idx: int,
     end_idx: int,
@@ -83,19 +119,19 @@ def download_shard(
     filter_prefix: Optional[str] = None
 ) -> Dict[str, Dict[str, str]]:
     """
-    下载指定范围的对象分片
+    下载指定范围的对象分片（边下载边存储）
     
     Args:
         start_idx: 开始索引
         end_idx: 结束索引
         output_dir: 输出目录
-        processes: 并行进程数
+        processes: 并行进程数（注意：边下载边存储模式下，建议使用较小的进程数）
         filter_prefix: 过滤前缀（如 "000-000"）
     
     Returns:
         下载结果字典
     """
-    print(f"开始下载分片 {start_idx}-{end_idx}")
+    print(f"开始下载分片 {start_idx}-{end_idx} (边下载边存储模式)")
     
     # 获取所有UIDs
     all_uids = objaverse_download.load_uids()
@@ -115,34 +151,34 @@ def download_shard(
         print("没有找到要下载的对象")
         return {}
     
-    # 加载元数据
+    # 批量加载元数据（这个比较轻量，可以一次性加载）
     print("加载元数据...")
     annotations = objaverse_download.load_annotations(shard_uids)
     print(f"成功加载 {len(annotations)} 个对象的元数据")
     
-    # 下载GLB文件
-    print("下载3D模型文件...")
-    objects = objaverse_download.load_objects(shard_uids, download_processes=processes)
-    print(f"成功下载 {len(objects)} 个3D模型")
-    
-    # 创建自定义文件结构
-    print("重新组织文件结构...")
+    # 逐个下载并存储
+    print("开始逐个下载并存储...")
     results = {}
-    for uid in tqdm(shard_uids, desc="处理文件"):
-        if uid in objects and uid in annotations:
-            try:
-                file_paths = create_custom_structure(
-                    output_dir, 
-                    uid, 
-                    objects[uid], 
-                    annotations[uid]
-                )
-                results[uid] = file_paths
-            except Exception as e:
-                print(f"处理对象 {uid} 时出错: {e}")
-                results[uid] = {'error': str(e)}
-        else:
-            results[uid] = {'error': 'Missing object or annotation'}
+    
+    # 如果processes > 1，使用多进程处理
+    if processes > 1:
+        print(f"使用 {processes} 个进程并行处理")
+        from multiprocessing import Pool
+        
+        # 准备参数列表
+        args_list = [(uid, output_dir, annotations) for uid in shard_uids]
+        
+        with Pool(processes=processes) as pool:
+            # 使用starmap并行执行
+            pool_results = pool.starmap(download_single_object, args_list)
+            
+        # 组装结果
+        for uid, result in zip(shard_uids, pool_results):
+            results[uid] = result
+    else:
+        # 单进程顺序处理
+        for uid in tqdm(shard_uids, desc="下载进度"):
+            results[uid] = download_single_object(uid, output_dir, annotations)
     
     return results
 
