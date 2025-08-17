@@ -50,6 +50,7 @@ Issues = "https://github.com/ray/objaverse-download/issues"
 objaverse-download = "objaverse_download:main"
 objaverse-test = "test_download:test_download"
 objaverse-shard = "shard_download:main"
+objaverse-retry = "retry_failed:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["objaverse_download.py"]

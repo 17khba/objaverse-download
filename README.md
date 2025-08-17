@@ -193,6 +193,57 @@ downloads/download_log_0_100.json
 
 包含下载参数、每个对象的处理结果和统计信息。
 
+### 重试下载失败的对象
+
+当分片下载过程中出现网络错误、连接超时等问题导致部分对象下载失败时，可以使用重试工具：
+
+```bash
+# 查看失败记录（不重试）
+uv run objaverse-retry download_log_100_200.json --list-only
+
+# 重试失败的下载（使用默认设置：3次重试，5秒间隔）
+uv run objaverse-retry download_log_100_200.json
+
+# 自定义重试参数
+uv run objaverse-retry download_log_100_200.json \
+  --max-retries 5 \
+  --retry-delay 10
+
+# 指定不同的输出目录
+uv run objaverse-retry download_log_100_200.json \
+  --output ./retry_downloads
+```
+
+#### 重试工具功能
+
+- **智能分析**：自动从日志文件中提取失败的UID
+- **重试机制**：支持自定义重试次数和间隔
+- **实时反馈**：显示每次重试的结果和进度
+- **详细日志**：保存重试结果到新的日志文件
+- **错误处理**：针对常见网络问题（SSL错误、超时、连接中断）进行智能重试
+
+#### 常见失败原因及解决方案
+
+| 错误类型 | 典型原因 | 建议解决方案 |
+|---------|---------|-------------|
+| `SSL: UNEXPECTED_EOF_WHILE_READING` | SSL连接问题 | 增加重试次数和间隔 |
+| `Connection timed out` | 网络超时 | 使用更长的重试间隔 |
+| `Remote end closed connection` | 服务器连接中断 | 分批重试，减少并发数 |
+| `retrieval incomplete` | 下载不完整 | 检查网络稳定性，重试下载 |
+
+示例重试输出：
+```
+正在重试: d028274cfd2e46da91ae709892e82ebe
+  原始错误: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>
+  尝试 1/3...
+  ✓ 重试成功!
+
+重试完成!
+成功: 5
+失败: 1
+总计: 6
+```
+
 ## 函数说明
 
 - `load_uids()`: 获取所有可用的对象 UID
