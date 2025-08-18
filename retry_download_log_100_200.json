@@ -1,0 +1,77 @@
+{
+  "original_log": "download_log_100_200.json",
+  "args": {
+    "log_file": "download_log_100_200.json",
+    "output": null,
+    "max_retries": 3,
+    "retry_delay": 5,
+    "list_only": false
+  },
+  "results": {
+    "d028274cfd2e46da91ae709892e82ebe": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/d0/d028274cfd2e46da91ae709892e82ebe.glb",
+        "metadata": "model/d0/d028274cfd2e46da91ae709892e82ebe.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "fd48be676773464ab2c1fed60c8524ec": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/fd/fd48be676773464ab2c1fed60c8524ec.glb",
+        "metadata": "model/fd/fd48be676773464ab2c1fed60c8524ec.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "4016b21e545449e1af722623998ad6b7": {
+      "status": "success",
+      "attempts": 2,
+      "original_error": "Remote end closed connection without response",
+      "result": {
+        "glb": "model/40/4016b21e545449e1af722623998ad6b7.glb",
+        "metadata": "model/40/4016b21e545449e1af722623998ad6b7.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "2b944973dc7c4f449aea6270ec1e42e6": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/2b/2b944973dc7c4f449aea6270ec1e42e6.glb",
+        "metadata": "model/2b/2b944973dc7c4f449aea6270ec1e42e6.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "8b7b47ddf6c34891a0663c8c00e5184c": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error retrieval incomplete: got only 154299852 out of 165770944 bytes>",
+      "result": {
+        "glb": "model/8b/8b7b47ddf6c34891a0663c8c00e5184c.glb",
+        "metadata": "model/8b/8b7b47ddf6c34891a0663c8c00e5184c.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "1c5917c1e9d147a984725886fc917ea7": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/1c/1c5917c1e9d147a984725886fc917ea7.glb",
+        "metadata": "model/1c/1c5917c1e9d147a984725886fc917ea7.m.metadata.json",
+        "thumbnail": null
+      }
+    }
+  },
+  "summary": {
+    "success": 6,
+    "failed": 0,
+    "total": 6
+  }
+}

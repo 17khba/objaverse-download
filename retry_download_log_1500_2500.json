@@ -1,0 +1,817 @@
+{
+  "original_log": "download_log_1500_2500.json",
+  "args": {
+    "log_file": "download_log_1500_2500.json",
+    "output": null,
+    "max_retries": 3,
+    "retry_delay": 5,
+    "list_only": false
+  },
+  "results": {
+    "b072ec9f1de0477ea6b0d7c77a9f930c": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/b0/b072ec9f1de0477ea6b0d7c77a9f930c.glb",
+        "metadata": "model/b0/b072ec9f1de0477ea6b0d7c77a9f930c.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "cd60af55848a44caab433b4686789108": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/cd/cd60af55848a44caab433b4686789108.glb",
+        "metadata": "model/cd/cd60af55848a44caab433b4686789108.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "4ef2a92c805940108b546932a5600e53": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error retrieval incomplete: got only 3046430 out of 3207856 bytes>",
+      "result": {
+        "glb": "model/4e/4ef2a92c805940108b546932a5600e53.glb",
+        "metadata": "model/4e/4ef2a92c805940108b546932a5600e53.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "2da449dda34f4e3783e62509bf977061": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/2d/2da449dda34f4e3783e62509bf977061.glb",
+        "metadata": "model/2d/2da449dda34f4e3783e62509bf977061.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "ce72a5fe0f7a413cbfbfc765b3545dc8": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/ce/ce72a5fe0f7a413cbfbfc765b3545dc8.glb",
+        "metadata": "model/ce/ce72a5fe0f7a413cbfbfc765b3545dc8.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "10fcac1e5a4d4a4497961689b5e4d7fb": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/10/10fcac1e5a4d4a4497961689b5e4d7fb.glb",
+        "metadata": "model/10/10fcac1e5a4d4a4497961689b5e4d7fb.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "8d137dd8df804e76bbc4cc5df3f7680c": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/8d/8d137dd8df804e76bbc4cc5df3f7680c.glb",
+        "metadata": "model/8d/8d137dd8df804e76bbc4cc5df3f7680c.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "ef5871eb10f44b4884b4ae12ef104660": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/ef/ef5871eb10f44b4884b4ae12ef104660.glb",
+        "metadata": "model/ef/ef5871eb10f44b4884b4ae12ef104660.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "79019c02d4b5466aa5e45da8eb93e512": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/79/79019c02d4b5466aa5e45da8eb93e512.glb",
+        "metadata": "model/79/79019c02d4b5466aa5e45da8eb93e512.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "353bb977d7154b8da709b25cc01a5389": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/35/353bb977d7154b8da709b25cc01a5389.glb",
+        "metadata": "model/35/353bb977d7154b8da709b25cc01a5389.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "bea0cb112eaa45dba2f89073cea6c6ef": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/be/bea0cb112eaa45dba2f89073cea6c6ef.glb",
+        "metadata": "model/be/bea0cb112eaa45dba2f89073cea6c6ef.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "d29de4bb06db4ce3a794619a899c56fa": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/d2/d29de4bb06db4ce3a794619a899c56fa.glb",
+        "metadata": "model/d2/d29de4bb06db4ce3a794619a899c56fa.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "626ab40588fb497fa90ee86e014e2bbf": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/62/626ab40588fb497fa90ee86e014e2bbf.glb",
+        "metadata": "model/62/626ab40588fb497fa90ee86e014e2bbf.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "59bfcc0fd6b742db95e5470123af4990": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/59/59bfcc0fd6b742db95e5470123af4990.glb",
+        "metadata": "model/59/59bfcc0fd6b742db95e5470123af4990.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "dec2af9668e44276a473ada6bab847ab": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/de/dec2af9668e44276a473ada6bab847ab.glb",
+        "metadata": "model/de/dec2af9668e44276a473ada6bab847ab.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "00d4f3c2bcec432cbd2d0c1c961d0ed6": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/00/00d4f3c2bcec432cbd2d0c1c961d0ed6.glb",
+        "metadata": "model/00/00d4f3c2bcec432cbd2d0c1c961d0ed6.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "a4f37d28d18c4c4d8ac2fd81a8259ede": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/a4/a4f37d28d18c4c4d8ac2fd81a8259ede.glb",
+        "metadata": "model/a4/a4f37d28d18c4c4d8ac2fd81a8259ede.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "0eff14b7f8c94e38baf70656b26abc83": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/0e/0eff14b7f8c94e38baf70656b26abc83.glb",
+        "metadata": "model/0e/0eff14b7f8c94e38baf70656b26abc83.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "8952f1af5a12495b8e6ca4d4ae2514e9": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/89/8952f1af5a12495b8e6ca4d4ae2514e9.glb",
+        "metadata": "model/89/8952f1af5a12495b8e6ca4d4ae2514e9.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "a9ea37ea4f8449f3ad14e98956c704dc": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/a9/a9ea37ea4f8449f3ad14e98956c704dc.glb",
+        "metadata": "model/a9/a9ea37ea4f8449f3ad14e98956c704dc.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "d1e519263753466893c02064b4581d04": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/d1/d1e519263753466893c02064b4581d04.glb",
+        "metadata": "model/d1/d1e519263753466893c02064b4581d04.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "aba1349e6fdc47a483c6917ed573c589": {
+      "status": "success",
+      "attempts": 2,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/ab/aba1349e6fdc47a483c6917ed573c589.glb",
+        "metadata": "model/ab/aba1349e6fdc47a483c6917ed573c589.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "d5b2de071a0e4aa08156ddf183674385": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error retrieval incomplete: got only 36688706 out of 39467696 bytes>",
+      "result": {
+        "glb": "model/d5/d5b2de071a0e4aa08156ddf183674385.glb",
+        "metadata": "model/d5/d5b2de071a0e4aa08156ddf183674385.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "bf41b8cd12044dddbdcba72442735a40": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/bf/bf41b8cd12044dddbdcba72442735a40.glb",
+        "metadata": "model/bf/bf41b8cd12044dddbdcba72442735a40.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "e0765fe1c61b4373b64d8dee96bd6f5d": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/e0/e0765fe1c61b4373b64d8dee96bd6f5d.glb",
+        "metadata": "model/e0/e0765fe1c61b4373b64d8dee96bd6f5d.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "0c9db9b0c6e944e78b4f9511cc9b34c9": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/0c/0c9db9b0c6e944e78b4f9511cc9b34c9.glb",
+        "metadata": "model/0c/0c9db9b0c6e944e78b4f9511cc9b34c9.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "4ce1ae070b584681b0fb12903ea7bab1": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/4c/4ce1ae070b584681b0fb12903ea7bab1.glb",
+        "metadata": "model/4c/4ce1ae070b584681b0fb12903ea7bab1.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "e1bddbcc07f74d81b5555cde25e2017e": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/e1/e1bddbcc07f74d81b5555cde25e2017e.glb",
+        "metadata": "model/e1/e1bddbcc07f74d81b5555cde25e2017e.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "133fec3ef2b84b4ca5b3fe02d978199d": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error retrieval incomplete: got only 871335 out of 888372 bytes>",
+      "result": {
+        "glb": "model/13/133fec3ef2b84b4ca5b3fe02d978199d.glb",
+        "metadata": "model/13/133fec3ef2b84b4ca5b3fe02d978199d.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "3527a52bd8c842c39ee1f650edae14f9": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/35/3527a52bd8c842c39ee1f650edae14f9.glb",
+        "metadata": "model/35/3527a52bd8c842c39ee1f650edae14f9.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "351f9c3a71794a6d8993c6f595e2897a": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error retrieval incomplete: got only 67587481 out of 74911540 bytes>",
+      "result": {
+        "glb": "model/35/351f9c3a71794a6d8993c6f595e2897a.glb",
+        "metadata": "model/35/351f9c3a71794a6d8993c6f595e2897a.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "656ebb365ec645af87c826692b233dc0": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/65/656ebb365ec645af87c826692b233dc0.glb",
+        "metadata": "model/65/656ebb365ec645af87c826692b233dc0.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "0b498b7677574bfb9d0c162ddab9a4dc": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/0b/0b498b7677574bfb9d0c162ddab9a4dc.glb",
+        "metadata": "model/0b/0b498b7677574bfb9d0c162ddab9a4dc.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "d5e1417d3a6e4870bba5cd809a799ef7": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/d5/d5e1417d3a6e4870bba5cd809a799ef7.glb",
+        "metadata": "model/d5/d5e1417d3a6e4870bba5cd809a799ef7.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "67ca36cc55064e44aef046ac909b1012": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/67/67ca36cc55064e44aef046ac909b1012.glb",
+        "metadata": "model/67/67ca36cc55064e44aef046ac909b1012.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "78f7b63976c64a6bac6958c0286c521d": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/78/78f7b63976c64a6bac6958c0286c521d.glb",
+        "metadata": "model/78/78f7b63976c64a6bac6958c0286c521d.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "8e4d0fe165c24f5d8094935f5362aaa7": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/8e/8e4d0fe165c24f5d8094935f5362aaa7.glb",
+        "metadata": "model/8e/8e4d0fe165c24f5d8094935f5362aaa7.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "42ecf49ddf0741f18f18c0484e8a4117": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/42/42ecf49ddf0741f18f18c0484e8a4117.glb",
+        "metadata": "model/42/42ecf49ddf0741f18f18c0484e8a4117.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "ccf9caf4328e432db5e1803246844abe": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error retrieval incomplete: got only 89967953 out of 90774092 bytes>",
+      "result": {
+        "glb": "model/cc/ccf9caf4328e432db5e1803246844abe.glb",
+        "metadata": "model/cc/ccf9caf4328e432db5e1803246844abe.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "548885b586344893a90cb6bcbc68e4b2": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/54/548885b586344893a90cb6bcbc68e4b2.glb",
+        "metadata": "model/54/548885b586344893a90cb6bcbc68e4b2.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "8b523cb6c7b44d139dce19e373c7fa52": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/8b/8b523cb6c7b44d139dce19e373c7fa52.glb",
+        "metadata": "model/8b/8b523cb6c7b44d139dce19e373c7fa52.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "3db817954c0b446abab9ae1eafb8747e": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/3d/3db817954c0b446abab9ae1eafb8747e.glb",
+        "metadata": "model/3d/3db817954c0b446abab9ae1eafb8747e.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "5cfcc2c792b44693a3106dc4dce6715c": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/5c/5cfcc2c792b44693a3106dc4dce6715c.glb",
+        "metadata": "model/5c/5cfcc2c792b44693a3106dc4dce6715c.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "b68348ebf69d4435bcc0d2baf05ff0fc": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/b6/b68348ebf69d4435bcc0d2baf05ff0fc.glb",
+        "metadata": "model/b6/b68348ebf69d4435bcc0d2baf05ff0fc.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "e0900c1990ea499a86b0aed8207877a0": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/e0/e0900c1990ea499a86b0aed8207877a0.glb",
+        "metadata": "model/e0/e0900c1990ea499a86b0aed8207877a0.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "8154a8bd36d740c8a5e1d98f9879abdf": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/81/8154a8bd36d740c8a5e1d98f9879abdf.glb",
+        "metadata": "model/81/8154a8bd36d740c8a5e1d98f9879abdf.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "89af79333eff4b38b4d2a967d1147978": {
+      "status": "success",
+      "attempts": 2,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/89/89af79333eff4b38b4d2a967d1147978.glb",
+        "metadata": "model/89/89af79333eff4b38b4d2a967d1147978.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "3edb59b36c0a4f48b1f897511a9e46ae": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/3e/3edb59b36c0a4f48b1f897511a9e46ae.glb",
+        "metadata": "model/3e/3edb59b36c0a4f48b1f897511a9e46ae.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "8928b8de856047f7bf1bbe4f00146d0e": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/89/8928b8de856047f7bf1bbe4f00146d0e.glb",
+        "metadata": "model/89/8928b8de856047f7bf1bbe4f00146d0e.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "5e63cdaaa55142909f60728334bcd390": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/5e/5e63cdaaa55142909f60728334bcd390.glb",
+        "metadata": "model/5e/5e63cdaaa55142909f60728334bcd390.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "7515fe9a02f64ab9a36a4b818162dbde": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/75/7515fe9a02f64ab9a36a4b818162dbde.glb",
+        "metadata": "model/75/7515fe9a02f64ab9a36a4b818162dbde.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "9c2765f1e2484c288a00db93ab49700b": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/9c/9c2765f1e2484c288a00db93ab49700b.glb",
+        "metadata": "model/9c/9c2765f1e2484c288a00db93ab49700b.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "ce8de0a515044946970ebcde4edeec07": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/ce/ce8de0a515044946970ebcde4edeec07.glb",
+        "metadata": "model/ce/ce8de0a515044946970ebcde4edeec07.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "4d260dc681404d1aa5c18ff713d06de1": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/4d/4d260dc681404d1aa5c18ff713d06de1.glb",
+        "metadata": "model/4d/4d260dc681404d1aa5c18ff713d06de1.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "a12f432d54864e5886d340e67bc93059": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/a1/a12f432d54864e5886d340e67bc93059.glb",
+        "metadata": "model/a1/a12f432d54864e5886d340e67bc93059.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "52f05b45b7bb467182b468f28c76b32d": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/52/52f05b45b7bb467182b468f28c76b32d.glb",
+        "metadata": "model/52/52f05b45b7bb467182b468f28c76b32d.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "a26c349eb9514d1c8efd1a02d8c7ad6d": {
+      "status": "success",
+      "attempts": 2,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/a2/a26c349eb9514d1c8efd1a02d8c7ad6d.glb",
+        "metadata": "model/a2/a26c349eb9514d1c8efd1a02d8c7ad6d.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "b3e31a296a7746e1abcc6e054ae47dae": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/b3/b3e31a296a7746e1abcc6e054ae47dae.glb",
+        "metadata": "model/b3/b3e31a296a7746e1abcc6e054ae47dae.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "e496113977e2424380f9ad4240c4da23": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/e4/e496113977e2424380f9ad4240c4da23.glb",
+        "metadata": "model/e4/e496113977e2424380f9ad4240c4da23.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "85df269b69c54be2a76fc13f978248ff": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/85/85df269b69c54be2a76fc13f978248ff.glb",
+        "metadata": "model/85/85df269b69c54be2a76fc13f978248ff.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "5279fba4cf2d484691a4a542dbca1b6e": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/52/5279fba4cf2d484691a4a542dbca1b6e.glb",
+        "metadata": "model/52/5279fba4cf2d484691a4a542dbca1b6e.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "492bcd69d2cb4e3b905269bcd7d00106": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/49/492bcd69d2cb4e3b905269bcd7d00106.glb",
+        "metadata": "model/49/492bcd69d2cb4e3b905269bcd7d00106.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "03df98468b594c548e38adedb59958ae": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/03/03df98468b594c548e38adedb59958ae.glb",
+        "metadata": "model/03/03df98468b594c548e38adedb59958ae.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "9ddeb8f337bc4faca8460084da0c77f1": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/9d/9ddeb8f337bc4faca8460084da0c77f1.glb",
+        "metadata": "model/9d/9ddeb8f337bc4faca8460084da0c77f1.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "a7a21dd91012442c952f715217b414e0": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/a7/a7a21dd91012442c952f715217b414e0.glb",
+        "metadata": "model/a7/a7a21dd91012442c952f715217b414e0.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "9929a530bf5e47d09f01335cfa22b808": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/99/9929a530bf5e47d09f01335cfa22b808.glb",
+        "metadata": "model/99/9929a530bf5e47d09f01335cfa22b808.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "cdbe5eeee6234c00bae6d78ee4d841b8": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/cd/cdbe5eeee6234c00bae6d78ee4d841b8.glb",
+        "metadata": "model/cd/cdbe5eeee6234c00bae6d78ee4d841b8.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "f88648a070544238ae1159134afbfc57": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/f8/f88648a070544238ae1159134afbfc57.glb",
+        "metadata": "model/f8/f88648a070544238ae1159134afbfc57.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "5c7a1fdf9c574fa4b20aca2029fd1ca4": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error retrieval incomplete: got only 77457089 out of 94702780 bytes>",
+      "result": {
+        "glb": "model/5c/5c7a1fdf9c574fa4b20aca2029fd1ca4.glb",
+        "metadata": "model/5c/5c7a1fdf9c574fa4b20aca2029fd1ca4.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "a3573624952d4fb1a66fb7c1a23cfaf7": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/a3/a3573624952d4fb1a66fb7c1a23cfaf7.glb",
+        "metadata": "model/a3/a3573624952d4fb1a66fb7c1a23cfaf7.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "2ef81a195ef34a9aa1ed42b90abc3aab": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/2e/2ef81a195ef34a9aa1ed42b90abc3aab.glb",
+        "metadata": "model/2e/2ef81a195ef34a9aa1ed42b90abc3aab.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "fd75e386c5ed4e94911ef97d0c006cb1": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/fd/fd75e386c5ed4e94911ef97d0c006cb1.glb",
+        "metadata": "model/fd/fd75e386c5ed4e94911ef97d0c006cb1.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "e2e2a11d79be4831a2b8629d66edbcf5": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/e2/e2e2a11d79be4831a2b8629d66edbcf5.glb",
+        "metadata": "model/e2/e2e2a11d79be4831a2b8629d66edbcf5.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "f3c3a9a0e02a4d239361fb532056ee73": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+      "result": {
+        "glb": "model/f3/f3c3a9a0e02a4d239361fb532056ee73.glb",
+        "metadata": "model/f3/f3c3a9a0e02a4d239361fb532056ee73.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "41dbe701933345fd9560b733e4c622b5": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/41/41dbe701933345fd9560b733e4c622b5.glb",
+        "metadata": "model/41/41dbe701933345fd9560b733e4c622b5.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "a8c1044391cb46e593d5625e6c5d45a5": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/a8/a8c1044391cb46e593d5625e6c5d45a5.glb",
+        "metadata": "model/a8/a8c1044391cb46e593d5625e6c5d45a5.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "a58c7ccd7e0545e6a9ce9906ff666d28": {
+      "status": "success",
+      "attempts": 2,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/a5/a58c7ccd7e0545e6a9ce9906ff666d28.glb",
+        "metadata": "model/a5/a58c7ccd7e0545e6a9ce9906ff666d28.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "19cbc3a2588d4199946a58afec265d3c": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/19/19cbc3a2588d4199946a58afec265d3c.glb",
+        "metadata": "model/19/19cbc3a2588d4199946a58afec265d3c.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "621ba323937d42ac90935dad82cdc7fe": {
+      "status": "success",
+      "attempts": 2,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/62/621ba323937d42ac90935dad82cdc7fe.glb",
+        "metadata": "model/62/621ba323937d42ac90935dad82cdc7fe.m.metadata.json",
+        "thumbnail": null
+      }
+    },
+    "7b9be5e13ba94f39be36112f2d254fb3": {
+      "status": "success",
+      "attempts": 1,
+      "original_error": "<urlopen error [Errno 110] Connection timed out>",
+      "result": {
+        "glb": "model/7b/7b9be5e13ba94f39be36112f2d254fb3.glb",
+        "metadata": "model/7b/7b9be5e13ba94f39be36112f2d254fb3.m.metadata.json",
+        "thumbnail": null
+      }
+    }
+  },
+  "summary": {
+    "success": 80,
+    "failed": 0,
+    "total": 80
+  }
+}
