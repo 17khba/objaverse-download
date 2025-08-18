@@ -51,6 +51,7 @@ objaverse-download = "objaverse_download:main"
 objaverse-test = "test_download:test_download"
 objaverse-shard = "shard_download:main"
 objaverse-retry = "retry_failed:main"
+objaverse-filter = "filter_success:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["objaverse_download.py"]
