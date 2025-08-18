@@ -1,269 +1,60 @@
 # Objaverse 下载工具
 
-一个用于从 Objaverse 数据集下载和处理 3D 对象的 Python 包。
+一个用于从 Objaverse 数据集下载和处理 3D 对象的 Python 包，提供完整的下载管理系统。
 
-## 概述
+## 📖 目录
 
-该工具提供了一个简单的接口，用于从 [Objaverse 数据集](https://huggingface.co/datasets/allenai/objaverse) 下载 3D 对象，该数据集包含大量 GLB 格式的 3D 模型。该包处理元数据加载、并行下载和本地缓存。
+- [概述](#概述)
+- [快速开始](#快速开始)
+- [安装](#安装)
+- [核心功能](#核心功能)
+  - [基本下载](#基本下载)
+  - [分片下载](#分片下载)
+  - [失败重试](#失败重试)
+  - [日志分析](#日志分析)
+- [完整工作流程](#完整工作流程)
+- [API 参考](#api-参考)
+- [故障排除](#故障排除)
+- [开发指南](#开发指南)
 
-## 功能特性
+## 📝 概述
 
-- 从 Objaverse 数据集下载 3D 对象
-- 加载对象元数据和注释
-- 支持使用多进程进行并行下载
-- 本地缓存以避免重复下载
-- 支持 LVIS 类别注释
+该工具提供了一个完整的 3D 模型下载管理系统，支持从 [Objaverse 数据集](https://huggingface.co/datasets/allenai/objaverse) 批量下载 GLB 格式的 3D 模型。
 
-## 使用方法
+### 主要特性
 
-### 基本用法
+- 🚀 **高效下载**：支持多进程并行下载
+- 🔄 **智能重试**：自动处理网络错误和超时
+- 📊 **日志管理**：详细的下载记录和分析工具
+- 🗂️ **文件组织**：自动整理文件结构
+- 🛠️ **故障恢复**：从失败中断点续传
 
-```python
-import objaverse_download
+## 🚀 快速开始
 
-# 加载所有可用的 UID
-uids = objaverse_download.load_uids()
-
-# 加载特定对象的元数据
-annotations = objaverse_download.load_annotations(uids[:10])
-
-# 下载对象（下载到 ~/.objaverse/）
-objects = objaverse_download.load_objects(uids[:10], download_processes=4)
-
-# 加载 LVIS 注释
-lvis_annotations = objaverse_download.load_lvis_annotations()
-```
-
-### 运行脚本
-
-#### 使用 uv（推荐）
-
+### 1. 基本测试下载
 ```bash
-# 运行主下载脚本
-uv run python objaverse_download.py
-
-# 或者使用定义的脚本入口点
-uv run objaverse-download
-
-# 运行测试脚本
-uv run python test_download.py
-
-# 或者使用定义的测试入口点
+# 快速测试：下载 3 个模型
 uv run objaverse-test
 ```
 
-#### 传统方式
-
+### 2. 分片下载
 ```bash
-python objaverse_download.py
-```
-
-这将会：
-1. 从数据集加载对象路径
-2. 从第一批（000-000）中选择 500 个对象
-3. 使用 10 个并行进程下载元数据和 3D 模型
-
-### 快速测试
-
-如果想要快速测试下载功能，可以尝试下载少量对象：
-
-```python
-# 快速测试下载 5 个对象
-import objaverse_download
-
-# 获取前 5 个 UID
-uids = objaverse_download.load_uids()[:5]
-print(f"准备下载 {len(uids)} 个对象")
-
-# 下载对象
-objects = objaverse_download.load_objects(uids, download_processes=2)
-print(f"成功下载 {len(objects)} 个对象")
-
-# 打印下载的文件路径
-for uid, path in objects.items():
-    print(f"UID: {uid} -> 路径: {path}")
-```
-
-或者创建一个简单的测试脚本 `test_download.py`：
-
-```python
-#!/usr/bin/env python3
-import objaverse_download
-
-def test_download():
-    """测试下载功能"""
-    print("开始测试 Objaverse 下载功能...")
-    
-    # 获取少量 UID 进行测试
-    all_uids = objaverse_download.load_uids()
-    test_uids = all_uids[:3]  # 只下载 3 个对象进行测试
-    
-    print(f"将下载 {len(test_uids)} 个测试对象")
-    
-    # 下载对象
-    objects = objaverse_download.load_objects(test_uids, download_processes=1)
-    
-    print(f"测试完成！成功下载 {len(objects)} 个对象：")
-    for uid, path in objects.items():
-        print(f"  - {uid}: {path}")
-
-if __name__ == "__main__":
-    test_download()
-```
-
-然后运行：
-
-#### 使用 uv
-```bash
-uv run python test_download.py
-# 或者
-uv run objaverse-test
-```
-
-#### 传统方式
-```bash
-python test_download.py
-```
-
-### 分片下载
-
-项目提供了一个强大的分片下载工具，支持手动配置下载范围和自定义文件结构：
-
-#### 基本用法
-
-```bash
-# 使用 uv（推荐）
+# 下载 100 个模型到指定目录
 uv run objaverse-shard --start 0 --end 100 --output ./my_models
-
-# 传统方式
-python shard_download.py --start 0 --end 100 --output ./my_models
 ```
 
-#### 高级选项
-
+### 3. 处理下载失败
 ```bash
-# 指定并行进程数
-uv run objaverse-shard --start 0 --end 100 -p 8
+# 查看失败记录
+uv run objaverse-filter download_log_0_100.json --show-failed
 
-# 按前缀过滤（只下载特定批次）
-uv run objaverse-shard --start 0 --end 100 -f "000-000"
-
-# 干运行模式（查看将要下载的对象数量）
-uv run objaverse-shard --start 0 --end 100 --dry-run
-
-# 完整示例
-uv run objaverse-shard \
-  --start 0 \
-  --end 500 \
-  --output ./downloads \
-  --processes 6 \
-  --filter "000-001"
+# 重试失败的下载
+uv run objaverse-retry download_log_0_100.json
 ```
 
-#### 自定义文件结构
-
-分片下载工具会自动重新组织文件结构：
-
-```
-downloads/
-└── model/
-    ├── 84/
-    │   ├── 8476c4170df24cf5bbe6967222d1a42d.glb           # 3D模型文件
-    │   ├── 8476c4170df24cf5bbe6967222d1a42d.m.metadata.json # 模型元数据
-    │   ├── 8476c4170df24cf5bbe6967222d1a42d.thumb.jpeg     # 缩略图（如果有）
-    │   ├── 84xxxxx.glb                                      # 其他84开头的文件
-    │   └── 84xxxxx.m.metadata.json
-    └── 8f/
-        ├── 8ff7f1f2465347cd8b80c9b206c2781e.glb
-        ├── 8ff7f1f2465347cd8b80c9b206c2781e.m.metadata.json
-        └── 8ff7f1f2465347cd8b80c9b206c2781e.thumb.jpeg
-```
-
-每个对象使用其 UID 的前2位作为目录名，包含：
-- **GLB文件**：3D模型主文件
-- **元数据文件**：完整的对象信息（JSON格式）
-- **缩略图**：对象的预览图片（如果可用）
-
-#### 下载日志
-
-工具会在输出目录生成详细的下载日志：
-```
-downloads/download_log_0_100.json
-```
-
-包含下载参数、每个对象的处理结果和统计信息。
-
-### 重试下载失败的对象
-
-当分片下载过程中出现网络错误、连接超时等问题导致部分对象下载失败时，可以使用重试工具：
-
-```bash
-# 查看失败记录（不重试）
-uv run objaverse-retry download_log_100_200.json --list-only
-
-# 重试失败的下载（使用默认设置：3次重试，5秒间隔）
-uv run objaverse-retry download_log_100_200.json
-
-# 自定义重试参数
-uv run objaverse-retry download_log_100_200.json \
-  --max-retries 5 \
-  --retry-delay 10
-
-# 指定不同的输出目录
-uv run objaverse-retry download_log_100_200.json \
-  --output ./retry_downloads
-```
-
-#### 重试工具功能
-
-- **智能分析**：自动从日志文件中提取失败的UID
-- **重试机制**：支持自定义重试次数和间隔
-- **实时反馈**：显示每次重试的结果和进度
-- **详细日志**：保存重试结果到新的日志文件
-- **错误处理**：针对常见网络问题（SSL错误、超时、连接中断）进行智能重试
-
-#### 常见失败原因及解决方案
-
-| 错误类型 | 典型原因 | 建议解决方案 |
-|---------|---------|-------------|
-| `SSL: UNEXPECTED_EOF_WHILE_READING` | SSL连接问题 | 增加重试次数和间隔 |
-| `Connection timed out` | 网络超时 | 使用更长的重试间隔 |
-| `Remote end closed connection` | 服务器连接中断 | 分批重试，减少并发数 |
-| `retrieval incomplete` | 下载不完整 | 检查网络稳定性，重试下载 |
-
-示例重试输出：
-```
-正在重试: d028274cfd2e46da91ae709892e82ebe
-  原始错误: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>
-  尝试 1/3...
-  ✓ 重试成功!
-
-重试完成!
-成功: 5
-失败: 1
-总计: 6
-```
-
-## 函数说明
-
-- `load_uids()`: 获取所有可用的对象 UID
-- `load_annotations(uids)`: 加载指定 UID 的元数据
-- `load_objects(uids, download_processes)`: 下载 3D 对象
-- `load_lvis_annotations()`: 加载 LVIS 类别注释
-
-## 存储位置
-
-下载的文件存储在 `~/.objaverse/hf-objaverse-v1/` 目录下：
-- 元数据：`metadata/`
-- 3D 对象：`glbs/`
-- 对象路径：`object-paths.json.gz`
-- LVIS 注释：`lvis-annotations.json.gz`
-
-## 安装
+## 💾 安装
 
 ### 使用 uv（推荐）
-
-确保已安装 [uv](https://docs.astral.sh/uv/)：
 
 ```bash
 # 安装 uv
@@ -273,44 +64,290 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 git clone <repository-url>
 cd objaverse-download
 
-# 创建虚拟环境并安装依赖
+# 安装依赖
 uv sync
-
-# 激活虚拟环境
-source .venv/bin/activate  # Linux/macOS
-# 或
-.venv\Scripts\activate     # Windows
 ```
 
-### 传统安装方式
+### 传统方式
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 依赖要求
+**系统要求**：Python 3.8+
 
-- Python 3.8+
-- tqdm
-- 标准库模块：glob, gzip, json, multiprocessing, os, urllib.request, warnings
+## 🎯 核心功能
 
-## 开发
+### 基本下载
+
+#### Python API 使用
+
+```python
+import objaverse_download
+
+# 获取可用的模型 UID
+uids = objaverse_download.load_uids()
+
+# 下载前 10 个模型
+objects = objaverse_download.load_objects(uids[:10], download_processes=4)
+
+# 加载模型元数据
+annotations = objaverse_download.load_annotations(uids[:10])
+```
+
+#### 命令行使用
+
+```bash
+# 基本下载
+uv run objaverse-download
+
+# 测试下载
+uv run objaverse-test
+```
+
+### 分片下载
+
+分片下载是核心功能，支持精确控制下载范围和并发。
+
+#### 基本语法
+
+```bash
+uv run objaverse-shard --start <开始索引> --end <结束索引> [选项]
+```
+
+#### 常用选项
+
+| 参数 | 说明 | 示例 |
+|------|------|------|
+| `--start` | 开始索引 | `--start 0` |
+| `--end` | 结束索引 | `--end 100` |
+| `--output` | 输出目录 | `--output ./downloads` |
+| `--processes` | 并发进程数 | `--processes 6` |
+| `--filter` | 批次过滤器 | `--filter "000-001"` |
+| `--dry-run` | 预览模式 | `--dry-run` |
+
+#### 使用示例
+
+```bash
+# 基础下载
+uv run objaverse-shard --start 0 --end 100 --output ./models
+
+# 高并发下载
+uv run objaverse-shard --start 0 --end 500 --processes 8
+
+# 按批次过滤
+uv run objaverse-shard --start 0 --end 100 --filter "000-001"
+
+# 预览下载内容
+uv run objaverse-shard --start 0 --end 100 --dry-run
+```
+
+#### 文件结构
+
+下载后的文件按 UID 前缀自动组织：
+
+```
+downloads/
+└── model/
+    ├── 84/
+    │   ├── 8476c4170df24cf5bbe6967222d1a42d.glb           # 3D模型
+    │   ├── 8476c4170df24cf5bbe6967222d1a42d.m.metadata.json # 元数据
+    │   └── 8476c4170df24cf5bbe6967222d1a42d.thumb.jpeg     # 缩略图
+    └── 8f/
+        ├── 8ff7f1f2465347cd8b80c9b206c2781e.glb
+        └── 8ff7f1f2465347cd8b80c9b206c2781e.m.metadata.json
+```
+
+### 失败重试
+
+智能重试系统可以自动处理网络问题和下载失败。
+
+#### 基本重试
+
+```bash
+# 查看失败记录
+uv run objaverse-retry download_log_100_200.json --list-only
+
+# 使用默认设置重试
+uv run objaverse-retry download_log_100_200.json
+```
+
+#### 自定义重试参数
+
+```bash
+# 增加重试次数和间隔
+uv run objaverse-retry download_log_100_200.json \
+  --max-retries 5 \
+  --retry-delay 10
+
+# 指定输出目录
+uv run objaverse-retry download_log_100_200.json \
+  --output ./retry_downloads
+```
+
+#### 常见错误处理
+
+| 错误类型 | 原因 | 解决方案 |
+|---------|------|---------|
+| `SSL: UNEXPECTED_EOF_WHILE_READING` | SSL连接问题 | 增加重试次数和间隔 |
+| `Connection timed out` | 网络超时 | 使用更长的重试间隔 |
+| `Remote end closed connection` | 服务器连接中断 | 减少并发数，分批重试 |
+| `retrieval incomplete` | 下载不完整 | 检查网络稳定性 |
+
+### 日志分析
+
+强大的日志分析工具帮助您了解下载状态和问题。
+
+#### 查看失败详情
+
+```bash
+# 按错误类型分组显示失败记录
+uv run objaverse-filter download_log_100_200.json --show-failed
+```
+
+#### 过滤日志记录
+
+```bash
+# 提取失败记录（默认）
+uv run objaverse-filter download_log_100_200.json
+
+# 提取成功记录
+uv run objaverse-filter download_log_100_200.json --keep-success
+
+# 生成重试建议
+uv run objaverse-filter download_log_100_200.json --suggest-retry
+```
+
+#### 示例输出
+
+```
+失败的下载记录 (6 个):
+--------------------------------------------------------------------------------
+
+错误类型: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>
+影响的对象数量: 2
+UID列表:
+  d028274cfd2e46da91ae709892e82ebe
+  1c5917c1e9d147a984725886fc917ea7
+
+重新下载建议:
+  失败对象总数: 6
+  建议并发数: 2 (已减少以提高稳定性)
+  建议命令:
+    uv run objaverse-retry filtered_failed_download_log_100_200.json --max-retries 5 --retry-delay 10
+```
+
+## 🔄 完整工作流程
+
+### 1. 大批量下载工作流
+
+```bash
+# 步骤1：分片下载
+uv run objaverse-shard --start 0 --end 1000 --output ./downloads --processes 6
+
+# 步骤2：检查失败记录
+uv run objaverse-filter download_log_0_1000.json --show-failed
+
+# 步骤3：重试失败下载
+uv run objaverse-filter download_log_0_1000.json --suggest-retry
+uv run objaverse-retry filtered_failed_download_log_0_1000.json --max-retries 5
+
+# 步骤4：验证最终结果
+uv run objaverse-filter retry_filtered_failed_download_log_0_1000.json --show-failed
+```
+
+### 2. 渐进式下载策略
+
+```bash
+# 小批量测试
+uv run objaverse-shard --start 0 --end 50 --dry-run
+uv run objaverse-shard --start 0 --end 50 --processes 2
+
+# 中等批量
+uv run objaverse-shard --start 50 --end 200 --processes 4
+
+# 大批量下载
+uv run objaverse-shard --start 200 --end 1000 --processes 6
+```
+
+### 3. 网络不稳定环境
+
+```bash
+# 使用较少的并发和更长的重试间隔
+uv run objaverse-shard --start 0 --end 100 --processes 2
+
+# 对失败记录使用更激进的重试策略
+uv run objaverse-retry download_log.json \
+  --max-retries 10 \
+  --retry-delay 15
+```
+
+## 📚 API 参考
+
+### 核心函数
+
+| 函数 | 说明 | 参数 |
+|------|------|------|
+| `load_uids()` | 获取所有可用的对象 UID | 无 |
+| `load_annotations(uids)` | 加载指定 UID 的元数据 | `uids`: UID列表 |
+| `load_objects(uids, download_processes)` | 下载 3D 对象 | `uids`: UID列表, `download_processes`: 并发数 |
+| `load_lvis_annotations()` | 加载 LVIS 类别注释 | 无 |
+
+### 命令行工具
+
+| 命令 | 功能 |
+|------|------|
+| `objaverse-download` | 基本下载脚本 |
+| `objaverse-test` | 测试下载功能 |
+| `objaverse-shard` | 分片下载工具 |
+| `objaverse-retry` | 重试失败下载 |
+| `objaverse-filter` | 日志分析工具 |
+
+### 存储位置
+
+- **默认缓存**：`~/.objaverse/hf-objaverse-v1/`
+- **元数据**：`metadata/`
+- **3D 对象**：`glbs/`
+- **自定义下载**：用户指定的输出目录
+
+## 🛠️ 故障排除
+
+### 常见问题
+
+**Q: 下载速度很慢怎么办？**
+A: 适当增加 `--processes` 参数，但不要超过 8-10 个进程。
+
+**Q: 经常出现 SSL 错误？**
+A: 减少并发数，增加重试间隔：`--retry-delay 10`
+
+**Q: 如何恢复中断的下载？**
+A: 使用重试工具：`uv run objaverse-retry <log_file>`
+
+**Q: 磁盘空间不够怎么办？**
+A: 分批下载，每次下载较少的模型。
+
+### 性能优化建议
+
+1. **网络稳定**：使用 2-4 个并发进程
+2. **网络良好**：可以使用 6-8 个并发进程
+3. **大批量下载**：分成多个小批次
+4. **失败重试**：使用较长的重试间隔
+
+## 🔧 开发指南
 
 ### 开发环境设置
 
 ```bash
-# 克隆项目
+# 克隆并设置开发环境
 git clone <repository-url>
 cd objaverse-download
-
-# 使用 uv 创建开发环境
 uv sync --dev
 
 # 激活虚拟环境
 source .venv/bin/activate  # Linux/macOS
 ```
 
-### 代码格式化和检查
+### 代码规范
 
 ```bash
 # 格式化代码
@@ -323,7 +360,18 @@ uv run mypy .
 uv run pytest
 ```
 
-## 数据集
+### 贡献指南
 
-Objaverse 数据集托管在 Hugging Face 上，包含数十万个 3D 对象。该工具从以下地址下载：
-`https://huggingface.co/datasets/allenai/objaverse/`
+1. Fork 项目
+2. 创建特性分支
+3. 提交代码
+4. 创建 Pull Request
+
+## 📄 许可证
+
+MIT License
+
+## 🔗 相关链接
+
+- [Objaverse 数据集](https://huggingface.co/datasets/allenai/objaverse/)
+- [UV 包管理器](https://docs.astral.sh/uv/)
