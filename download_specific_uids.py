@@ -18,7 +18,7 @@ def parse_args():
     
     parser.add_argument(
         "uids",
-        nargs="+",
+        nargs="*",
         help="要下载的 UID 列表，用空格分隔"
     )
     
@@ -215,6 +215,12 @@ def main():
             print("❌ 没有找到失败的UID")
             sys.exit(1)
     else:
+        if not args.uids:
+            print("❌ 请提供UID列表或使用 --from-failed-log 参数")
+            print("用法示例:")
+            print("  uv run objaverse-uid uid1 uid2 uid3")
+            print("  uv run objaverse-uid --from-failed-log log_file.json")
+            sys.exit(1)
         uids = args.uids
     
     print(f"📋 要下载的UID: {uids}")
