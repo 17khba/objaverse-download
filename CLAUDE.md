@@ -70,6 +70,9 @@ uv run objaverse-retry download_log_0_100.json --max-retries 5 --retry-delay 10
 
 # Analyze download logs
 uv run objaverse-filter download_log_0_100.json --show-failed
+
+# Download specific UIDs
+uv run objaverse-uid --from-failed-log retry_download_log.json --custom-structure
 ```
 
 ### JavaScript Upload Tools
@@ -84,7 +87,7 @@ node scripts/retry-upload.js logs/upload-error.log
 ## Key Configuration
 
 ### Python Package (pyproject.toml)
-- Entry points defined for all CLI tools: `objaverse-download`, `objaverse-test`, `objaverse-shard`, `objaverse-retry`, `objaverse-filter`
+- Entry points defined for all CLI tools: `objaverse-download`, `objaverse-test`, `objaverse-shard`, `objaverse-retry`, `objaverse-filter`, `objaverse-uid`
 - Development dependencies include pytest, black, flake8, mypy
 - Configured for Python 3.8+ support
 

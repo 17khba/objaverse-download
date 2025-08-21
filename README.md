@@ -187,6 +187,29 @@ uv run objaverse-retry download_log_100_200.json \
   --output ./retry_downloads
 ```
 
+#### 指定UID下载
+
+对于特定的失败UID，可以使用专门的脚本进行精确下载：
+
+```bash
+# 直接指定UID下载
+uv run objaverse-uid 46be81a95d65444da75aa7e2e9f42f2a e032f702a9b14e0298cb236d3b44147b
+
+# 使用自定义文件结构
+uv run objaverse-uid 46be81a95d65444da75aa7e2e9f42f2a e032f702a9b14e0298cb236d3b44147b \
+  --custom-structure --output ./downloads
+
+# 从失败日志自动提取UID（推荐）
+uv run objaverse-uid --from-failed-log retry_download_log_10000_20000.json \
+  --custom-structure --output ./downloads --processes 2
+```
+
+**指定UID下载的优势：**
+- 精确下载特定的失败模型
+- 支持从重试日志自动提取失败UID
+- 可选的自定义文件组织结构
+- 详细的下载进度和错误报告
+
 #### 常见错误处理
 
 | 错误类型 | 原因 | 解决方案 |
@@ -331,10 +354,14 @@ uv run objaverse-retry filtered_failed_download_log_0_1000.json --max-retries 5
 # 步骤4：验证最终结果
 uv run objaverse-filter retry_filtered_failed_download_log_0_1000.json --show-failed
 
-# 步骤5：上传到云存储
+# 步骤5：处理顽固失败的UID（可选）
+uv run objaverse-uid --from-failed-log retry_filtered_failed_download_log_0_1000.json \
+  --custom-structure --processes 1
+
+# 步骤6：上传到云存储
 node scripts/upload-model.js
 
-# 步骤6：重试失败上传
+# 步骤7：重试失败上传
 node scripts/retry-upload.js logs/upload-error.log
 ```
 
@@ -384,6 +411,7 @@ uv run objaverse-retry download_log.json \
 | `objaverse-shard` | 分片下载工具 |
 | `objaverse-retry` | 重试失败下载 |
 | `objaverse-filter` | 日志分析工具 |
+| `objaverse-uid` | 指定UID精确下载 |
 
 ### 存储位置
 
@@ -403,7 +431,7 @@ A: 适当增加 `--processes` 参数，但不要超过 8-10 个进程。
 A: 减少并发数，增加重试间隔：`--retry-delay 10`
 
 **Q: 如何恢复中断的下载？**
-A: 使用重试工具：`uv run objaverse-retry <log_file>`
+A: 使用重试工具：`uv run objaverse-retry <log_file>`，或针对特定UID：`uv run objaverse-uid --from-failed-log <log_file>`
 
 **Q: 磁盘空间不够怎么办？**
 A: 分批下载，每次下载较少的模型。
