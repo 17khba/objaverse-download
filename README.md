@@ -12,6 +12,7 @@
   - [分片下载](#分片下载)
   - [失败重试](#失败重试)
   - [日志分析](#日志分析)
+- [云存储上传](#云存储上传)
 - [完整工作流程](#完整工作流程)
 - [API 参考](#api-参考)
 - [故障排除](#故障排除)
@@ -28,6 +29,7 @@
 - 📊 **日志管理**：详细的下载记录和分析工具
 - 🗂️ **文件组织**：自动整理文件结构
 - 🛠️ **故障恢复**：从失败中断点续传
+- ☁️ **云存储支持**：支持上传到阿里云 OSS，含超时优化重试机制
 
 ## 🚀 快速开始
 
@@ -237,6 +239,80 @@ UID列表:
     uv run objaverse-retry filtered_failed_download_log_100_200.json --max-retries 5 --retry-delay 10
 ```
 
+## ☁️ 云存储上传
+
+下载完成的模型可以上传到阿里云 OSS 进行存储和分发。
+
+### 上传配置
+
+首先配置环境变量（创建 `.env` 文件）：
+
+```bash
+# 阿里云 OSS 配置
+OSS_REGION=oss-cn-beijing
+OSS_ACCESS_KEY_ID=your_access_key_id
+OSS_ACCESS_KEY_SECRET=your_access_key_secret
+OSS_BUCKET=your_bucket_name
+
+# 可选配置
+OSS_BUCKET_PATH=model/          # 存储路径前缀
+UPLOAD_CONCURRENT=5             # 上传并发数
+UPLOAD_RETRY=3                  # 重试次数
+```
+
+### 基本上传
+
+```bash
+# 安装 Node.js 依赖
+npm install
+
+# 上传模型文件到 OSS
+node scripts/upload-model.js
+```
+
+### 处理上传失败
+
+上传过程中可能遇到网络超时等问题，系统会自动记录失败日志。
+
+```bash
+# 重试失败的上传（推荐）
+node scripts/retry-upload.js logs/upload-error.log
+```
+
+#### 重试脚本特性
+
+- **超时优化**：增加连接和响应超时时间（5-10分钟）
+- **智能分片**：根据文件大小动态调整分片大小（512KB-2MB）
+- **降低并发**：减少并发数以提高稳定性
+- **指数退避**：失败后延迟时间逐渐增加
+- **详细报告**：生成上传成功率和失败原因统计
+
+#### 重试脚本环境变量
+
+```bash
+# 重试配置（可选，在 .env 中配置）
+RETRY_DELAY=5000               # 重试延迟（毫秒）
+UPLOAD_CONCURRENT=2            # 重试时并发数（建议不超过2）
+UPLOAD_RETRY=5                 # 最大重试次数
+```
+
+### 上传工作流程
+
+```bash
+# 完整的上传工作流程
+# 1. 首次上传
+node scripts/upload-model.js
+
+# 2. 检查失败日志
+cat logs/upload-error.log
+
+# 3. 重试失败的文件
+node scripts/retry-upload.js logs/upload-error.log
+
+# 4. 查看重试报告
+cat logs/retry-upload-report-*.json
+```
+
 ## 🔄 完整工作流程
 
 ### 1. 大批量下载工作流
@@ -254,6 +330,12 @@ uv run objaverse-retry filtered_failed_download_log_0_1000.json --max-retries 5
 
 # 步骤4：验证最终结果
 uv run objaverse-filter retry_filtered_failed_download_log_0_1000.json --show-failed
+
+# 步骤5：上传到云存储
+node scripts/upload-model.js
+
+# 步骤6：重试失败上传
+node scripts/retry-upload.js logs/upload-error.log
 ```
 
 ### 2. 渐进式下载策略
@@ -325,6 +407,12 @@ A: 使用重试工具：`uv run objaverse-retry <log_file>`
 
 **Q: 磁盘空间不够怎么办？**
 A: 分批下载，每次下载较少的模型。
+
+**Q: 上传到 OSS 时出现超时错误？**
+A: 使用重试脚本：`node scripts/retry-upload.js logs/upload-error.log`，该脚本已优化超时设置和分片大小。
+
+**Q: 如何减少上传失败率？**
+A: 1) 降低并发数（设置 `UPLOAD_CONCURRENT=2`）；2) 增加重试延迟（设置 `RETRY_DELAY=10000`）；3) 使用重试脚本处理失败文件。
 
 ### 性能优化建议
 

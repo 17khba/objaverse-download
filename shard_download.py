@@ -232,7 +232,7 @@ def main():
     print(f"失败: {error_count}")
     
     # 保存下载日志
-    log_file = Path(args.output) / f"download_log_{args.start}_{args.end}.json"
+    log_file = Path(args.output) / f"download-logs/download_log_{args.start}_{args.end}.json"
     with open(log_file, 'w', encoding='utf-8') as f:
         json.dump({
             'args': vars(args),
