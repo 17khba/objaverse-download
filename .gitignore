@@ -68,3 +68,4 @@ dmypy.json
 
 # directory
 model/
+node_modules/

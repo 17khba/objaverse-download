@@ -1,0 +1,17 @@
+{
+  "name": "objaverse-download",
+  "version": "1.0.0",
+  "description": "一个用于从 Objaverse 数据集下载和处理 3D 对象的 Python 包，提供完整的下载管理系统。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "ali-oss": "^6.17.0",
+    "dotenv": "^16.3.1",
+    "glob": "^10.4.5"
+  },
+  "license": "ISC"
+}
