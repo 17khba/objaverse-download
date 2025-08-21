@@ -1,0 +1,13 @@
+{
+  "summary": {
+    "totalFiles": 533,
+    "successCount": 62,
+    "failedCount": 0,
+    "skippedCount": 471,
+    "startTime": "2025-08-21T09:37:32.315Z",
+    "processedSize": 8060712856
+  },
+  "duration": 2638577,
+  "endTime": "2025-08-21T10:21:30.892Z",
+  "failedFiles": []
+}
